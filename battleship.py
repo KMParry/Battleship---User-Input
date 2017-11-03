@@ -27,8 +27,8 @@ class board:
 		'submarine': 3, 'destroyer': 2 } 
 	
 	def create_board(self):
-		self.grid = [[0 for x in range(10)] for y in range(10)]
-		self.plays = [[0 for x in range(10)] for y in range(10)]
+		self.grid = [['0' for x in range(10)] for y in range(10)]
+		self.plays = [['0' for x in range(10)] for y in range(10)]
 
 	def print_board(self):
 
@@ -79,7 +79,7 @@ class board:
 				return 0
 
 			for j in range(col-1, col-1+size):
-				if self.grid[row-1][j] != 0:
+				if self.grid[row-1][j] != '0':
 					print "This spot (%d, %d) is occupied!" % (row-1,j)
  					return 0
 					
@@ -97,7 +97,7 @@ class board:
 				return 0
 		
 			for i in range(row-1, row-1+size):
-				if self.grid[i][col-1] != 0:
+				if self.grid[i][col-1] != '0':
 					print "This spot (%d,%d) is occupied!" % (i, col-1)
  					return 0
 			for i in range(row-1, row-1+size):
@@ -164,7 +164,7 @@ class board:
 			return 1
 		
 		# check if empty
-		if self.grid[row_guess-1][col_guess-1] == 0:	
+		if self.grid[row_guess-1][col_guess-1] == '0':	
 			print "You missed!"
 			self.add_hits_and_misses(row_guess,col_guess,'M')
 			self.print_hits_and_misses()
